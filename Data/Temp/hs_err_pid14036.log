@@ -1,0 +1,257 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  Internal Error (0xe0000002), pid=14036, tid=13744
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_16-b02 mixed mode)
+# Problematic frame:
+# C  [KERNELBASE.dll+0x129ab2]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0d6180e8):  JavaThread "Thread-11" [_thread_in_native, id=13744]
+
+siginfo: ExceptionCode=0xe0000002
+
+Registers:
+EAX=0x00cf0f98, EBX=0x1844e9f0, ECX=0x00000000, EDX=0x77a53990
+ESP=0x00cf0f98, EBP=0x00cf0ff0, ESI=0xffffffff, EDI=0x00cf1048
+EIP=0x774e9ab2, EFLAGS=0x00200246
+
+Top of Stack: (sp=0x00cf0f98)
+0x00cf0f98:   e0000002 00000000 00000000 774e9ab2
+0x00cf0fa8:   00000000 18efcc1a 18efcc2d 0d6182b7
+0x00cf0fb8:   1c23006c 00000001 20213ac8 0d6180e8
+0x00cf0fc8:   18e67ce8 20213ad6 00000040 18e21e1c
+0x00cf0fd8:   0d6182b8 00cf1014 00cf1014 18eb5e02
+0x00cf0fe8:   1c142190 33aeae0d 00cf1060 0ed61fcf
+0x00cf0ff8:   e0000002 00000000 00000000 00000000
+0x00cf1008:   0ed61ff6 77a0c0fd 00000000 85ab68ae 
+
+Instructions: (pc=0x774e9ab2)
+0x774e9aa2:   8b 00 00 83 c4 0c 8d 04 24 50 ff 15 fc c3 59 77
+0x774e9ab2:   8b 4c 24 54 33 cc e8 13 4e 00 00 8b e5 5d c2 10 
+
+
+Stack: [0x00c00000,0x00d00000),  sp=0x00cf0f98,  free space=963k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [KERNELBASE.dll+0x129ab2]
+C  [mso.dll+0xc71fcf]
+C  [ntdll.dll+0x739fb]
+C  0x19dacc48
+C  [WS2_32.dll+0x124a0]
+C  0x19556a10
+j  java.net.SocketInputStream.socketRead0(Ljava/io/FileDescriptor;[BIII)I+0
+j  java.net.SocketInputStream.read([BII)I+84
+j  java.io.BufferedInputStream.fill()V+175
+j  java.io.BufferedInputStream.read1([BII)I+44
+j  java.io.BufferedInputStream.read([BII)I+49
+J  java.io.FilterInputStream.read([B)I
+j  com.coda.xml.router.SimpleConnection.readResponse(Lorg/xml/sax/DocumentHandler;)V+37
+j  com.coda.xml.router.Router.send(Ljava/lang/String;Lcom/coda/xml/router/Router$RouterEventProducer;Lorg/xml/sax/AttributeList;Ljava/util/Locale;Lorg/xml/sax/DocumentHandler;Z)V+345
+j  com.coda.xml.router.Router.send(Ljava/lang/String;Lcom/coda/xml/router/EventProducer;Lorg/xml/sax/AttributeList;Ljava/util/Locale;Lorg/xml/sax/DocumentHandler;)V+17
+v  ~StubRoutines::call_stub
+C  0x18e675fa
+C  0x18ebfe2c
+C  0x18e674cb
+C  0x18e6c3ca
+C  0x18c65ad9
+C  0x18c6d4db
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.net.SocketInputStream.socketRead0(Ljava/io/FileDescriptor;[BIII)I+0
+j  java.net.SocketInputStream.read([BII)I+84
+j  java.io.BufferedInputStream.fill()V+175
+j  java.io.BufferedInputStream.read1([BII)I+44
+j  java.io.BufferedInputStream.read([BII)I+49
+J  java.io.FilterInputStream.read([B)I
+j  com.coda.xml.router.SimpleConnection.readResponse(Lorg/xml/sax/DocumentHandler;)V+37
+j  com.coda.xml.router.Router.send(Ljava/lang/String;Lcom/coda/xml/router/Router$RouterEventProducer;Lorg/xml/sax/AttributeList;Ljava/util/Locale;Lorg/xml/sax/DocumentHandler;Z)V+345
+j  com.coda.xml.router.Router.send(Ljava/lang/String;Lcom/coda/xml/router/EventProducer;Lorg/xml/sax/AttributeList;Ljava/util/Locale;Lorg/xml/sax/DocumentHandler;)V+17
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x0d6180e8 JavaThread "Thread-11" [_thread_in_native, id=13744]
+  0x1c233808 JavaThread "router.reaper-coda@as13-all-ss:11200" daemon [_thread_blocked, id=20488]
+  0x1c233680 JavaThread "IdleThread" daemon [_thread_blocked, id=22308]
+  0x0d6e7768 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=11444]
+  0x0d6e6dd8 JavaThread "CompilerThread0" daemon [_thread_blocked, id=16836]
+  0x0d6e6390 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5208]
+  0x0d6dca30 JavaThread "Finalizer" daemon [_thread_blocked, id=22264]
+  0x0d6dc050 JavaThread "Reference Handler" daemon [_thread_blocked, id=2520]
+
+Other Threads:
+  0x0d6d64a8 VMThread [id=22956]
+  0x0d69ee90 WatcherThread [id=21380]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 704K, used 120K [0x20210000, 0x202d0000, 0x206f0000)
+  eden space 640K,  10% used [0x20210000, 0x20220528, 0x202b0000)
+  from space 64K,  86% used [0x202c0000, 0x202cdca8, 0x202d0000)
+  to   space 64K,   0% used [0x202b0000, 0x202b0000, 0x202c0000)
+ tenured generation   total 8424K, used 7290K [0x206f0000, 0x20f2a000, 0x24210000)
+   the space 8424K,  86% used [0x206f0000, 0x20e0eb20, 0x20e0ec00, 0x20f2a000)
+ compacting perm gen  total 8192K, used 3691K [0x24210000, 0x24a10000, 0x28210000)
+   the space 8192K,  45% used [0x24210000, 0x245aacd8, 0x245aae00, 0x24a10000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x2f800000 - 0x30b7f000 	C:\Program Files (x86)\Microsoft Office\Office14\EXCEL.EXE
+0x779e0000 - 0x77b83000 	C:\windows\SYSTEM32\ntdll.dll
+0x76b50000 - 0x76c40000 	C:\windows\System32\KERNEL32.DLL
+0x773c0000 - 0x775d4000 	C:\windows\System32\KERNELBASE.dll
+0x723a0000 - 0x7243f000 	C:\windows\SYSTEM32\apphelp.dll
+0x7a610000 - 0x7a861000 	C:\windows\SYSTEM32\AcGenral.dll
+0x76a90000 - 0x76b4f000 	C:\windows\System32\msvcrt.dll
+0x76a10000 - 0x76a85000 	C:\windows\System32\sechost.dll
+0x77690000 - 0x7774a000 	C:\windows\System32\RPCRT4.dll
+0x764a0000 - 0x764e5000 	C:\windows\System32\SHLWAPI.dll
+0x77830000 - 0x779c6000 	C:\windows\System32\USER32.dll
+0x76da0000 - 0x76db8000 	C:\windows\System32\win32u.dll
+0x775e0000 - 0x77603000 	C:\windows\System32\GDI32.dll
+0x76e20000 - 0x76efa000 	C:\windows\System32\gdi32full.dll
+0x76f00000 - 0x76f7b000 	C:\windows\System32\msvcp_win.dll
+0x77010000 - 0x77130000 	C:\windows\System32\ucrtbase.dll
+0x76210000 - 0x762f3000 	C:\windows\System32\ole32.dll
+0x77130000 - 0x773b1000 	C:\windows\System32\combase.dll
+0x75aa0000 - 0x75b36000 	C:\windows\System32\OLEAUT32.dll
+0x75c50000 - 0x76203000 	C:\windows\System32\SHELL32.dll
+0x75a20000 - 0x75a9a000 	C:\windows\System32\ADVAPI32.dll
+0x728a0000 - 0x72914000 	C:\windows\SYSTEM32\UxTheme.dll
+0x72980000 - 0x729a8000 	C:\windows\SYSTEM32\WINMM.dll
+0x734d0000 - 0x734e5000 	C:\windows\SYSTEM32\samcli.dll
+0x7b3e0000 - 0x7b3f9000 	C:\windows\SYSTEM32\MSACM32.dll
+0x74fd0000 - 0x74fd8000 	C:\windows\SYSTEM32\VERSION.dll
+0x754f0000 - 0x75515000 	C:\windows\SYSTEM32\USERENV.dll
+0x72950000 - 0x72976000 	C:\windows\SYSTEM32\dwmapi.dll
+0x74fe0000 - 0x75189000 	C:\windows\SYSTEM32\urlmon.dll
+0x73460000 - 0x734cd000 	C:\windows\SYSTEM32\WINSPOOL.DRV
+0x73440000 - 0x73459000 	C:\windows\SYSTEM32\MPR.dll
+0x73f80000 - 0x73fa8000 	C:\windows\SYSTEM32\SspiCli.dll
+0x7b400000 - 0x7b41d000 	C:\windows\SYSTEM32\winmmbase.dll
+0x74c10000 - 0x74e3b000 	C:\windows\SYSTEM32\iertutil.dll
+0x76310000 - 0x76397000 	C:\windows\System32\shcore.dll
+0x769e0000 - 0x76a05000 	C:\windows\System32\IMM32.DLL
+0x7a200000 - 0x7a3ad000 	C:\Program Files (x86)\Microsoft Office\Office14\gfx.dll
+0x7bd30000 - 0x7bdd3000 	C:\windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9625_none_508ef7e4bcbbe589\MSVCR90.dll
+0x751c0000 - 0x751cf000 	C:\windows\SYSTEM32\WTSAPI32.dll
+0x72ad0000 - 0x72ad6000 	C:\windows\SYSTEM32\MSIMG32.dll
+0x02b90000 - 0x03f27000 	C:\Program Files (x86)\Microsoft Office\Office14\oart.dll
+0x6ae20000 - 0x6ae74000 	C:\windows\SYSTEM32\ninput.dll
+0x738d0000 - 0x73a5c000 	C:\windows\System32\tmumh\20019\AddOn\8.53.0.1046\TmUmEvt.dll
+0x758a0000 - 0x758a6000 	C:\windows\System32\PSAPI.DLL
+0x734f0000 - 0x73649000 	C:\windows\System32\tmumh\20019\TmMon\2.8.0.1041\tmmon.dll
+0x0e0f0000 - 0x0f2a4000 	C:\Program Files (x86)\Common Files\Microsoft Shared\office14\mso.dll
+0x04980000 - 0x04c18000 	C:\windows\SYSTEM32\msi.dll
+0x04c30000 - 0x04c49000 	C:\windows\System32\bcrypt.dll
+0x04d00000 - 0x04f12000 	C:\windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_11b1e5df2ffd8627\Comctl32.dll
+0x05060000 - 0x0547a000 	C:\Program Files (x86)\Common Files\Microsoft Shared\office14\Cultures\office.odf
+0x057f0000 - 0x058c3000 	C:\windows\System32\MSCTF.dll
+0x05c10000 - 0x05e73000 	C:\Program Files (x86)\Common Files\Microsoft Shared\office14\1033\MSOINTL.DLL
+0x0f2b0000 - 0x137db000 	C:\Program Files (x86)\Common Files\Microsoft Shared\office14\MSORES.DLL
+0x05fd0000 - 0x05fdf000 	C:\windows\SYSTEM32\kernel.appcore.dll
+0x05fe0000 - 0x0603c000 	C:\windows\System32\bcryptPrimitives.dll
+0x06f70000 - 0x06fee000 	C:\windows\System32\clbcatq.dll
+0x07000000 - 0x0700e000 	C:\windows\system32\msimtf.dll
+0x07080000 - 0x071cf000 	C:\Program Files (x86)\Common Files\Microsoft Shared\office14\riched20.dll
+0x07230000 - 0x07397000 	C:\windows\WinSxS\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.19041.630_none_4294daf48a972df6\GdiPlus.dll
+0x07ba0000 - 0x07bf2000 	C:\windows\system32\mscoree.dll
+0x07c00000 - 0x07c8d000 	C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscoreei.dll
+0x071d0000 - 0x071f5000 	C:\windows\SYSTEM32\srpapi.dll
+0x07d50000 - 0x07e4f000 	C:\windows\System32\CRYPT32.dll
+0x07200000 - 0x07220000 	C:\Program Files (x86)\Common Files\Microsoft Shared\OfficeSoftwareProtectionPlatform\OSPPC.DLL
+0x07f90000 - 0x07fd4000 	C:\windows\SYSTEM32\POWRPROF.DLL
+0x07d30000 - 0x07d3d000 	C:\windows\SYSTEM32\UMPDC.dll
+0x06200000 - 0x062ba000 	C:\windows\SYSTEM32\textinputframework.dll
+0x062c0000 - 0x0653e000 	C:\windows\System32\CoreUIComponents.dll
+0x06540000 - 0x065db000 	C:\windows\System32\CoreMessaging.dll
+0x065e0000 - 0x06643000 	C:\windows\System32\WS2_32.dll
+0x06650000 - 0x06679000 	C:\windows\SYSTEM32\ntmarta.dll
+0x089a0000 - 0x08a7e000 	C:\windows\SYSTEM32\wintypes.dll
+0x090a0000 - 0x096aa000 	C:\windows\SYSTEM32\windows.storage.dll
+0x06690000 - 0x066b4000 	C:\windows\SYSTEM32\Wldp.dll
+0x08bd0000 - 0x08c0b000 	C:\windows\System32\CFGMGR32.dll
+0x08d10000 - 0x08dd3000 	C:\windows\system32\propsys.dll
+0x08e50000 - 0x08e6d000 	C:\windows\SYSTEM32\profapi.dll
+0x08e70000 - 0x08ece000 	C:\windows\System32\coml2.dll
+0x084a0000 - 0x084f3000 	C:\windows\SYSTEM32\OLEACC.DLL
+0x08510000 - 0x08598000 	C:\windows\SYSTEM32\sxs.dll
+0x096c0000 - 0x096f2000 	C:\windows\system32\dataexchange.dll
+0x09700000 - 0x098e0000 	C:\windows\system32\d3d11.dll
+0x098e0000 - 0x09a45000 	C:\windows\system32\dcomp.dll
+0x09a50000 - 0x09b12000 	C:\windows\system32\dxgi.dll
+0x09b20000 - 0x09cb1000 	C:\windows\system32\twinapi.appcore.dll
+0x09cc0000 - 0x09d54000 	C:\windows\SYSTEM32\TextShaping.dll
+0x09d80000 - 0x0a010000 	C:\PROGRA~2\COMMON~1\MICROS~1\VBA\VBA7\VBE7.DLL
+0x0a050000 - 0x0a076000 	C:\PROGRA~2\COMMON~1\MICROS~1\VBA\VBA7\1033\VBE7INTL.DLL
+0x0a950000 - 0x0aa7d000 	C:\windows\System32\FM20.DLL
+0x0aa80000 - 0x0ab2f000 	C:\windows\System32\COMDLG32.dll
+0x0ab30000 - 0x0abbd000 	C:\windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.19041.488_none_89e6152f0b32762e\COMCTL32.dll
+0x0b6b0000 - 0x0b725000 	C:\Program Files (x86)\CODA\CODA-Office\Core\CODA2Office.dll
+0x0b740000 - 0x0b8e0000 	C:\Program Files (x86)\CODA\CODA-Office\Core\xlCommon.dll
+0x0ca50000 - 0x0cb5c000 	C:\Program Files (x86)\CODA\CODA-Office\Core\MFC80U.DLL
+0x0b8f0000 - 0x0b98b000 	C:\windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.9672_none_d08f9da24428a513\MSVCR80.dll
+0x0b990000 - 0x0b9b6000 	C:\Program Files (x86)\CODA\CODA-Office\Core\JVMContainer.dll
+0x0bdd0000 - 0x0bdda000 	C:\windows\SYSTEM32\Secur32.dll
+0x0be00000 - 0x0be06000 	C:\windows\SYSTEM32\RICHED32.DLL
+0x0be10000 - 0x0be24000 	C:\Program Files (x86)\CODA\CODA-Office\Core\xlBalanceLoader.dll
+0x0ccb0000 - 0x0cd1f000 	C:\Program Files (x86)\CODA\CODA-Office\Core\xlBrowseDetails.dll
+0x0cd20000 - 0x0cdab000 	C:\Program Files (x86)\CODA\CODA-Office\Core\xlBrowseReport.dll
+0x0cc60000 - 0x0cc86000 	C:\Program Files (x86)\CODA\CODA-Office\Core\xlInput.dll
+0x0cdb0000 - 0x0ce3c000 	C:\Program Files (x86)\CODA\CODA-Office\Core\xlMastersData.dll
+0x0d0e0000 - 0x0d353000 	C:\windows\SYSTEM32\UIAutomationCore.dll
+0x0cfb0000 - 0x0cfba000 	C:\windows\SYSTEM32\CRYPTBASE.DLL
+0x0cfc0000 - 0x0d007000 	C:\windows\SYSTEM32\WINSTA.dll
+0x0b0c0000 - 0x0b0fd000 	C:\Windows\System32\OneCoreCommonProxyStub.dll
+0x0b280000 - 0x0b293000 	C:\windows\SYSTEM32\CRYPTSP.dll
+0x0b2a0000 - 0x0b2cf000 	C:\windows\system32\rsaenh.dll
+0x0b2d0000 - 0x0b2da000 	C:\Program Files (x86)\Microsoft Office\Office14\msostyle.dll
+0x0d010000 - 0x0d041000 	C:\windows\System32\netprofm.dll
+0x0cf90000 - 0x0cf9a000 	C:\windows\System32\npmproxy.dll
+0x0d050000 - 0x0d082000 	C:\windows\SYSTEM32\IPHLPAPI.DLL
+0x0cfa0000 - 0x0cfa7000 	C:\windows\System32\NSI.dll
+0x0d090000 - 0x0d0a4000 	C:\windows\SYSTEM32\dhcpcsvc6.DLL
+0x0d0b0000 - 0x0d0c6000 	C:\windows\SYSTEM32\dhcpcsvc.DLL
+0x0d560000 - 0x0d5f2000 	C:\windows\SYSTEM32\DNSAPI.dll
+0x0de90000 - 0x0e000000 	C:\windows\SYSTEM32\WindowsCodecs.dll
+0x0e070000 - 0x0e0b9000 	C:\Windows\System32\thumbcache.dll
+0x0de60000 - 0x0de73000 	C:\windows\system32\NetworkExplorer.dll
+0x138a0000 - 0x13938000 	C:\Users\rpa\.nuget\packages\uipath\20.4.7472.17184\build\UiPath\TCapture.dll
+0x13950000 - 0x139c4000 	C:\Users\rpa\.nuget\packages\uipath\20.4.7472.17184\build\UiPath\UiPathJavaBridgeV8.dll
+0x139e0000 - 0x13b12000 	C:\Users\rpa\.nuget\packages\uipath\20.4.7472.17184\build\UiPath\aahook.dll
+0x13b30000 - 0x13cb8000 	C:\windows\SYSTEM32\dbghelp.dll
+0x0d7c0000 - 0x0d7d9000 	C:\windows\system32\DavClnt.DLL
+0x085d0000 - 0x085da000 	C:\windows\SYSTEM32\DAVHLPR.dll
+0x0d920000 - 0x0d94b000 	C:\windows\SYSTEM32\XmlLite.dll
+0x0d950000 - 0x0d99a000 	C:\Windows\System32\Windows.FileExplorer.Common.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=C:\Program Files (x86)\Common Files\CODA\router\11.200 -Dcom.coda.configuration=native -Dcom.coda.configuration.context=xmlwin32 version=1.5 -Duser.language
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Microsoft Office\Office14\;C:\oracle\product\10.2.0\client_1\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\CODA\CODA-Office\Core;C:\Users\rpa\AppData\Local\Microsoft\WindowsApps;
+USERNAME=rpa
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 6 (cores per cpu 8, threads per core 2) family 6 model 14 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, ht
+
+Memory: 4k page, physical 2097151k(2097151k free), swap 4194303k(4194303k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_16-b02) for windows-x86, built on May 28 2008 01:04:49 by "java_re" with MS VC++ 6.0
+
